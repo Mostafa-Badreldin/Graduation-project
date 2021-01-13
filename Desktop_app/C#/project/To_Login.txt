@@ -1,0 +1,19 @@
+﻿To login into my app:
+
+1- as Instructor:
+
+username: Instructor name (ins_name from db)
+password: Instructor ID   (ins_id from db)
+
+for example:
+Username: ahmed ali
+password: 1
+
+2- as Student:
+
+username: Student first name (std_fname from db)
+password: Student ID   (std_id from db)
+
+for example:
+Username: ahmed
+password: 1

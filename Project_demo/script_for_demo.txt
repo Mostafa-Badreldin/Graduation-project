@@ -1,0 +1,400 @@
+﻿This is a short demo about our BI graduation project Oct. 2020 - Jan. 2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1- Database
+Examination system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.1- Database Diagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.2- Tables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.3- Select, Insert, Update and Delete stored procedures for all tables
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.4- Exam Generation, Exam Answers and Exam correction stored procedures
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.4.1- Exam Generation 
+
+ExamGeneration_sp @Crs_name nvarchar(50), @MCQ int, @T_F int
+
+Examshow_sp @exam_id int
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.4.2- Exam Answers
+
+ExamAnswer_sp @exam_id int ,@std_id int  ,@std_answer nvarchar(50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.4.3- Exam Correction
+
+ExamCorrection_sp @exam_id int ,@std_id int
+
+ExamCorrection_calc_std_garde_sp @std_id int,@exam_id int
+============================================================================
+select * from Questions where flag = 1
+exec ExamGeneration_sp 'sql', 5, 5
+select * from Questions where flag = 1
+exec Examshow_sp 7
+----------------------------------
+exec ExamAnswer_sp 7, 1, 'commit'
+exec ExamAnswer_sp 7, 1, 'Feature begins with two 0’s'
+exec ExamAnswer_sp 7, 1, 'Outer join'
+exec ExamAnswer_sp 7, 1, 'sp_status'
+exec ExamAnswer_sp 7, 1, 'sp_addmessage'
+exec ExamAnswer_sp 7, 1, 'False'
+exec ExamAnswer_sp 7, 1, 'True'
+exec ExamAnswer_sp 7, 1, 'False'
+exec ExamAnswer_sp 7, 1, 'True'
+exec ExamAnswer_sp 7, 1, 'True'
+----------------------------------
+select * from exam_Q_std where std_id = 1 and exam_id = 7
+exec ExamCorrection_sp 7, 1
+select * from exam_Q_std where std_id = 1 and exam_id = 7
+----------------------------------
+select * from student_course where crs_id = 1 and std_id = 1
+exec ExamCorrection_calc_std_garde_sp 1, 7
+select * from student_course where crs_id = 1 and std_id = 1
+============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2- SSRS Reports is deployed on Power Bi Server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.1- (Report 1): Report that returns the students information according to Department name.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.2- (Report 2): Report that takes the student name and returns the grades of the student 
+                 in all courses.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.3- (Report 3): Report that takes the instructor name and returns the name of the courses 
+                 that he teaches and the number of students per course.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.4- (Report 4): Report that takes course name and returns its topics . 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.5- (Report 5): Report that takes exam number and returns Questions in it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.6- (Report 6): Report that takes exam number and the student ID then returns 
+                 the Questions in this exam with the student answers. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3- Power BI Dashboard
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4- Desktop App with C#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Team members
+1- Mostafa Ibrahim
+2- Habiba Khaled
+3- Nouran Sherif
+4- Amira Fayez
+
+
+
+
+
+
+
+
+
+
+
+
+
